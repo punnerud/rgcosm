@@ -3,8 +3,7 @@ def coordinates_to_address(lat, lon):
     conn = sqlite3.connect('db.db')
     cursor = conn.cursor()
 
-    # Retrieve addresses within a +/- 0.01 degree range of the original 
-coordinates
+    # Retrieve addresses within a +/- 0.01 degree range of the original coordinates
     cursor.execute('''
         SELECT id, lat, lon, tags
         FROM nodes
@@ -14,19 +13,16 @@ coordinates
     if len(rows) == 0:
         return None
 
-    # Find the address with the smallest distance from the original 
-coordinates
+    # Find the address with the smallest distance from the original coordinates
     min_distance = float('inf')
     min_address = None
     for row in rows:
         id, node_lat, node_lon, tags = row
-        distance = math.sqrt((node_lat - lat) ** 2 + (node_lon - lon) ** 
-2)
+        distance = math.sqrt((node_lat - lat) ** 2 + (node_lon - lon) ** 2)
         if distance < min_distance:
             if tags.count('addr:') > 2:
                 min_distance = distance
-                min_address = {'id': id, 'lat': node_lat, 'lon': node_lon, 
-'tags': tags}
+                min_address = {'id': id, 'lat': node_lat, 'lon': node_lon, 'tags': tags}
 
     # Parse the tags column to find the address
     #address = {}
