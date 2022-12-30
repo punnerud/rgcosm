@@ -20,7 +20,7 @@ CREATE INDEX "nodes index lat" ON "nodes" ( "lat" );
 CREATE INDEX "nodes index lon" ON "nodes" ( "lon" );
 ```
 
-Adding indexes change the search time for my Norway file from 10 to 0.15 seconds. Changing the lookaround query will also increase the search, at the risk that you miss an adress if the closest adress is more far away.
+Adding indexes change the search time for my Norway file from 10 to 0.15 seconds. Changing the lookaround query can also reduce the search time, at the risk that you miss an adress if the closest adress is more far away.
 
 
 Mac users, I found this to work for installation of osmium for Python:
