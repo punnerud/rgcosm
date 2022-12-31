@@ -30,3 +30,6 @@ brew install wheel
 brew install osmium-tool
 python3 -m pip install osmium
 ```
+
+Premade sqlite3 database for Norway with indexes if you just want to try it:
+https://www.dropbox.com/s/4rrhxpfzulqbvxr/osm.db?dl=0
